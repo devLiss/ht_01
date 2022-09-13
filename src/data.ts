@@ -1,0 +1,38 @@
+export const data = [
+    {
+        "id": 0,
+        "title": "01",
+        "author": "01 author",
+        "canBeDownloaded": true,
+        "minAgeRestriction": null,
+        "createdAt": "2022-09-13T11:08:35.247Z",
+        "publicationDate": "2022-09-13T11:08:35.247Z",
+        "availableResolutions": [
+            "P144"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "02",
+        "author": "02author",
+        "canBeDownloaded": true,
+        "minAgeRestriction": null,
+        "createdAt": "2022-09-13T11:08:35.247Z",
+        "publicationDate": "2022-09-13T11:08:35.247Z",
+        "availableResolutions": [
+            "P144"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "03",
+        "author": "03 author",
+        "canBeDownloaded": true,
+        "minAgeRestriction": null,
+        "createdAt": "2022-09-13T11:08:35.247Z",
+        "publicationDate": "2022-09-13T11:08:35.247Z",
+        "availableResolutions": [
+            "P144"
+        ]
+    }
+]
