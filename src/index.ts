@@ -48,7 +48,7 @@ app.put('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
             messages.push({"message": "Title не может быть пустым",
                 "field": "title"})
         }
-        if(req.body.title.length > 40){
+        if(req.body.title && req.body.title.length > 40){
             messages.push({"message": "Title не может больше 40 символов",
                 "field": "title"})
         }
@@ -56,13 +56,17 @@ app.put('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
             messages.push({"message": "Author не может быть пустым",
                 "field": "author"})
         }
-        if(req.body.author.length > 20){
+        if(req.body.author && req.body.author.length > 20){
             messages.push({"message": "Author не может больше 20 символов",
                 "field": "author"})
         }
         if(req.body.minAgeRestriction.length > 18 && req.body.minAgeRestriction.length < 1){
             messages.push({"message": "minAgeRestriction должно быть в диапазоне от 1 до 18",
                 "field": "minAgeRestriction"})
+        }
+        if(req.body.canBeDownloaded && typeof (req.body.canBeDownloaded) != 'boolean'){
+            messages.push({"message": "canBeDownloaded должно быть логической переменной",
+                "field": "canBeDownloaded"})
         }
 
         video.title = req.body.title
@@ -112,7 +116,7 @@ app.post('/hometask_01/api/videos',(req:Request, res:Response)=>{
         }
         console.log(typeof req.body.canBeDownloaded)
         if(req.body.canBeDownloaded && typeof (req.body.canBeDownloaded) != 'boolean'){
-            messages.push({"message": "canBeDownloaded должно иметь логической переменной",
+            messages.push({"message": "canBeDownloaded должно быть логической переменной",
                 "field": "canBeDownloaded"})
         }
 
