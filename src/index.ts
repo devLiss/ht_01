@@ -94,7 +94,8 @@ app.put('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
 })
 app.post('/hometask_01/api/videos',(req:Request, res:Response)=>{
     const createdAt = new Date();
-    const pubDate = new Date(createdAt.getDate()+1);
+    const pubDate = new Date();
+    pubDate.setDate(createdAt.getDate()+1);
     const video:videoType = {
         id:+(new Date()),
         title: req.body.title,
