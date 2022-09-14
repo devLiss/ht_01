@@ -69,7 +69,8 @@ app.put('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
         }
 
         if(req.body.publicationDate){
-            let valid = /^(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+[+-][0-2]\d:[0-5]\d|Z)$/.test(req.body.publicationDate);
+            let valid = /^(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))$/.test(req.body.publicationDate);
+            console.log(valid)
             if(!valid){
                 messages.push({"message": "publicationDate некорректная дата",
                     "field": "publicationDate"})
