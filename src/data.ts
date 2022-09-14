@@ -6,7 +6,7 @@ export const data = [
         "canBeDownloaded": false,
         "minAgeRestriction": null,
         "createdAt": "2022-09-13T11:08:35.247Z",
-        "publicationDate": "2022-09-13T11:08:35.247Z",
+        "publicationDate": "2022-09-14T11:08:35.247Z",
         "availableResolutions": [
             "P144"
         ]
@@ -18,7 +18,7 @@ export const data = [
         "canBeDownloaded": false,
         "minAgeRestriction": null,
         "createdAt": "2022-09-13T11:08:35.247Z",
-        "publicationDate": "2022-09-13T11:08:35.247Z",
+        "publicationDate": "2022-09-14T11:08:35.247Z",
         "availableResolutions": [
             "P144"
         ]
@@ -27,10 +27,10 @@ export const data = [
         "id": 3,
         "title": "03",
         "author": "03 author",
-        "canBeDownloaded": true,
+        "canBeDownloaded": false,
         "minAgeRestriction": null,
         "createdAt": "2022-09-13T11:08:35.247Z",
-        "publicationDate": "2022-09-13T11:08:35.247Z",
+        "publicationDate": "2022-09-14T11:08:35.247Z",
         "availableResolutions": [
             "P144"
         ]

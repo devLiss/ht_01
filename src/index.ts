@@ -4,6 +4,7 @@ import {data} from "./data"
 import {resolutions} from "./data";
 import {videoType} from "./types";
 import bodyParser from "body-parser";
+import {create} from "domain";
 const app = express()
 const port = process.env.PORT || 5000
 const parserMiddleware = bodyParser({})
@@ -92,14 +93,16 @@ app.put('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
     }
 })
 app.post('/hometask_01/api/videos',(req:Request, res:Response)=>{
+    const createdAt = new Date();
+    const pubDate = new Date(createdAt.getDate()+1);
     const video:videoType = {
         id:+(new Date()),
         title: req.body.title,
         author: req.body.author,
-        canBeDownloaded: true,
+        canBeDownloaded: false,
         minAgeRestriction: null,
-        createdAt: new Date().toISOString(),
-        publicationDate: new Date().toISOString(),
+        createdAt: createdAt.toISOString(),
+        publicationDate: pubDate.toISOString(),
         availableResolutions: req.body.availableResolutions
     }
     let messages = [];
