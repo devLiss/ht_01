@@ -59,9 +59,34 @@ app.post('/hometask_01/api/videos',(req:Request, res:Response)=>{
         publicationDate: new Date().toISOString(),
         availableResolutions: req.body.availableResolutions
     }
+    let messages = [];
 
-    data.push(video);
-    res.status(201).send(video);
+        if(!req.body.title || !req.body.title.trim()){
+            messages.push({"message": "Title не может быть пустым",
+                "field": "title"})
+        }
+        if(req.body.title.length > 40){
+            messages.push({"message": "Title не может больше 40 символов",
+                "field": "title"})
+        }
+        if(!req.body.author || !req.body.author.trim()){
+            messages.push({"message": "Author не может быть пустым",
+                "field": "author"})
+        }
+        if(req.body.author.length > 20){
+            messages.push({"message": "Author не может больше 20 символов",
+                "field": "author"})
+        }
+
+    if(messages.length == 0){
+        data.push(video);
+        res.status(201).send(video);
+    }
+    else{
+        res.status(400).send({
+            "errorsMessages": messages})
+    }
+
 })
 app.listen(port,()=>{
     console.log(`Listening port ${port}`);
