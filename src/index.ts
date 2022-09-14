@@ -113,7 +113,7 @@ app.post('/hometask_01/api/videos',(req:Request, res:Response)=>{
                     "field": "availableResolutions"})
             }
             for(let i = 0; i < req.body.availableResolutions.length; i++){
-                if(resolutions.includes(req.body.availableResolutions[i])){
+                if(!resolutions.includes(req.body.availableResolutions[i])){
                     messages.push({"message": "availableResolutions имеет некорректное значение",
                         "field": "availableResolutions"})
                     break;
