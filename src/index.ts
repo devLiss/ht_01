@@ -110,6 +110,11 @@ app.post('/hometask_01/api/videos',(req:Request, res:Response)=>{
                     "field": "availableResolutions"})
             }
         }
+        console.log(typeof req.body.canBeDownloaded)
+        if(req.body.canBeDownloaded && typeof (req.body.canBeDownloaded) != 'boolean'){
+            messages.push({"message": "canBeDownloaded должно иметь логической переменной",
+                "field": "canBeDownloaded"})
+        }
 
 
     if(messages.length == 0){
