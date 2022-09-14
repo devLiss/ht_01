@@ -59,7 +59,7 @@ app.put('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
             messages.push({"message": "Author не может больше 20 символов",
                 "field": "author"})
         }
-        if(req.body.minAgeRestriction.length > 18 && req.body.minAgeRestriction.length < 1){
+        if(req.body.minAgeRestriction.length > 18 || req.body.minAgeRestriction.length < 1){
             messages.push({"message": "minAgeRestriction должно быть в диапазоне от 1 до 18",
                 "field": "minAgeRestriction"})
         }
