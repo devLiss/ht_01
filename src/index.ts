@@ -34,7 +34,7 @@ app.delete('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
     }
     res.send(404)
 })
-app.delete('/ht_01/api/testing/all-data',(req:Request, res:Response)=>{
+app.delete('/hometask_01/api/testing/all-data',(req:Request, res:Response)=>{
             res.status(204).send([]);
 })
 app.put('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
