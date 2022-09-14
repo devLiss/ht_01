@@ -43,7 +43,6 @@ app.put('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
     if(!video)
         res.send(404)
     else{
-
         if(!req.body.title || !req.body.title.trim()){
             messages.push({"message": "Title не может быть пустым",
                 "field": "title"})
@@ -112,6 +111,13 @@ app.post('/hometask_01/api/videos',(req:Request, res:Response)=>{
             if(req.body.availableResolutions.length <= 0){
                 messages.push({"message": "availableResolutions должно иметь хотя бы 1 значение",
                     "field": "availableResolutions"})
+            }
+            for(let i = 0; i < req.body.availableResolutions.length; i++){
+                if(resolutions.includes(req.body.availableResolutions[i])){
+                    messages.push({"message": "availableResolutions имеет некорректное значение",
+                        "field": "availableResolutions"})
+                    break;
+                }
             }
         }
         console.log(typeof req.body.canBeDownloaded)
