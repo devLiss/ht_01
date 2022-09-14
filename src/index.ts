@@ -92,7 +92,7 @@ app.post('/hometask_01/api/videos',(req:Request, res:Response)=>{
             messages.push({"message": "Title не может быть пустым",
                 "field": "title"})
         }
-        if(req.body.title.length > 40){
+        if(req.body.title && req.body.title.length > 40){
             messages.push({"message": "Title не может больше 40 символов",
                 "field": "title"})
         }
@@ -100,7 +100,7 @@ app.post('/hometask_01/api/videos',(req:Request, res:Response)=>{
             messages.push({"message": "Author не может быть пустым",
                 "field": "author"})
         }
-        if(req.body.author.length > 20){
+        if(req.body.author && req.body.author.length > 20){
             messages.push({"message": "Author не может больше 20 символов",
                 "field": "author"})
         }
