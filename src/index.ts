@@ -68,6 +68,13 @@ app.put('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
                 "field": "canBeDownloaded"})
         }
 
+        if(req.body.publicationDate){
+            let valid = /^(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+[+-][0-2]\d:[0-5]\d|Z)$/.test(req.body.publicationDate);
+            if(!valid){
+                messages.push({"message": "publicationDate некорректная дата",
+                    "field": "publicationDate"})
+            }
+        }
         if(messages.length == 0){
         video.title = req.body.title
             video.author = req.body.author
