@@ -68,14 +68,19 @@ app.put('/hometask_01/api/videos/:id',(req:Request, res:Response)=>{
                 "field": "canBeDownloaded"})
         }
 
+        if(messages.length == 0){
         video.title = req.body.title
             video.author = req.body.author
             video.availableResolutions= req.body.availableResolutions
             video.canBeDownloaded = req.body.canBeDownloaded
             video.minAgeRestriction = req.body.minAgeRestriction
             video.publicationDate = req.body.publicationDate
-
-        res.send(204)
+            res.send(204)
+        }
+        else{
+            res.status(400).send({
+                "errorsMessages": messages})
+        }
     }
 })
 app.post('/hometask_01/api/videos',(req:Request, res:Response)=>{
