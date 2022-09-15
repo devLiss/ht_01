@@ -25,9 +25,7 @@ videoRouter.delete('/:id',(req:Request, res:Response)=>{
     }
     res.send(404)
 })
-videoRouter.delete('/testing/all-data',(req:Request, res:Response)=>{
-    res.status(204).send([]);
-})
+
 videoRouter.put('/:id',(req:Request, res:Response)=>{
     const video = data.find(v => v.id === +req.params.id)
     let messages = [];
